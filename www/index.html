@@ -44,12 +44,15 @@
       fetchTestClass.fetchAll()
       .then(function(results){
         var msg="";
+        var tablemsg="<tr><th>Message</th><th>Update Date</th></tr>"
         for(var i=0;i<results.length;i++){
           var data=results[i].get("text");
           var update=results[i].get("updateDate");
           msg+="Data:"+data+"<br>Update:"+update+"<br>";
+          tablemsg+="<tr><td>"+data+"</td><td>"+update+"</td></tr>";
         }
         $("#message").html(msg);
+        $("#table").html(tablemsg);
       })
     }
     
@@ -69,6 +72,6 @@
   <div id="message">message area</div>
   <table id="table">
     <tr><th>Message</th><th>Update Date</th></tr>
-    <tr><td>Hello</td><td>date</td></tr>
+    <!-- <tr><td>Hello</td><td>date</td></tr> -->
     </body>
 </html>
